@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <header>
+      <div class="dark-mode-btn-container">
+        <button id="dark-mode-btn" class="dark-mode-btn">Dark Mode</button>
+      </div>
+      <div class="rps">
+        <h1>Rock Paper Scissors</h1>
+      </div>
+      <div class="rules">
+        <h2>Rules:</h2>
+        <ul>
+          <li>Pick either rock, paper, or scissors to beat your opponent!</li>
+          <li>Rock beats Scissors</li>
+          <li>Scissors beats Paper</li>
+          <li>Paper beats Rock</li>
+          <li>Picking the same choice as your opponent results in a tie</li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="intro">
+      <form class="number-of-games">
+        <div class="rounds">
+          <span>How many rounds do you want to play?</span>
+        </div>
+        <div class="best-of-container">
+          <div id="best-of-visibility" class="best-of">
+            <span>Best of </span>
+            <label
+              ><input
+                id="input-js"
+                class="game-input"
+                type="number"
+                min="1"
+                max="999"
+                placeholder="0"
+                step="2"
+            /></label>
+          </div>
+          <div id="best-of-hidden">
+            <span>Best of&ensp;<span id="best-of-final"></span>!</span>
+          </div>
+        </div>
+      </form>
+      <div class="confirm-btns-container">
+        <button id="toggle-btn" class="confirm-btn" onclick="iii();">
+          Confirm
+        </button>
+        <button id="series" class="series-btn">Change Series</button>
+      </div>
+      <p id="invalid-input">
+        Invalid! Pick a positive, odd number less than 1000!
+      </p>
+    </section>
+
+    <section class="game-field">
+      <div id="win-lose-draw-display" class="popup-display">
+        <div id="winner-popup">
+          <span id="winner-w" class="winner-green score-animation-invisible"
+            >W</span
+          >
+          <span id="winner-i" class="winner-green score-animation-invisible"
+            >I</span
+          >
+          <span id="winner-n" class="winner-green score-animation-invisible"
+            >N</span
+          >
+          <span id="winner-n1" class="winner-green score-animation-invisible"
+            >N</span
+          >
+          <span id="winner-e" class="winner-green score-animation-invisible"
+            >E</span
+          >
+          <span id="winner-r" class="winner-green score-animation-invisible"
+            >R</span
+          >
+        </div>
+        <div id="loser-popup">
+          <span id="loser-l" class="loser-red">L</span>
+          <span id="loser-o" class="loser-red">O</span>
+          <span id="loser-s" class="loser-red">S</span>
+          <span id="loser-e" class="loser-red">E</span>
+          <span id="loser-r" class="loser-red">R</span>
+        </div>
+        <div id="draw-popup">
+          <span id="draw-d" class="draw-blue">D</span>
+          <span id="draw-r" class="draw-blue">R</span>
+          <span id="draw-a" class="draw-blue">A</span>
+          <span id="draw-w" class="draw-blue">W</span>
+        </div>
+      </div>
+      <div class="playing-field">
+        <div class="user-player">
+          <div id="user-player-text" class="user-player-text">
+            <div id="user-score-display">
+              <span>You: </span>
+              <span id="live-user-score">0</span>
+            </div>
+            <div id="user-score-placeholder">
+              <span>You: </span>
+              <span>0</span>
+            </div>
+          </div>
+          <div class="user-player-hands">
+            <div id="user-hand-bounce" class="animation">
+              <span id="u-rock">
+                <i class="far fa-hand-rock fa-rotate-90"></i>
+              </span>
+              <span id="u-paper">
+                <i class="far fa-hand-paper fa-rotate-90"></i>
+              </span>
+              <span id="u-scissors">
+                <i class="far fa-hand-scissors fa-flip-horizontal"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="computer-player">
+          <div id="computer-player-text" class="computer-player-text">
+            <div id="opponent-score-display">
+              <span>Opponent: </span>
+              <span id="live-opponent-score">0</span>
+            </div>
+            <div id="opponent-score-placeholder">
+              <span>Opponent: </span>
+              <span>0</span>
+            </div>
+          </div>
+          <div class="computer-player-hands">
+            <div id="computer-hand-bounce" class="animation">
+              <span
+                id="c-rock"
+                class="fa-rotate-90"
+                style="display: inline-block"
+              >
+                <i class="far fa-hand-rock fa-flip-vertical hand-pos"></i>
+              </span>
+              <span
+                id="c-paper"
+                class="fa-rotate-270"
+                style="display: inline-block"
+              >
+                <i class="far fa-hand-paper fa-flip-horizontal hand-pos"></i>
+              </span>
+              <span id="c-scissors">
+                <i class="far fa-hand-scissors"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="picker">
+        <div id="round-text" class="picker-text">
+          <span
+            >First player to win <span id="number-of-rounds"></span> rounds
+            wins!</span
+          >
+          <span>What's your move?</span>
+        </div>
+        <div class="total-picker-btns">
+          <button id="rock-btn" class="picker-btn">
+            <i class="far fa-hand-rock fa-rotate-90"></i>
+          </button>
+          <button id="paper-btn" class="picker-btn">
+            <i class="far fa-hand-paper fa-rotate-90"></i>
+          </button>
+          <button id="scissors-btn" class="picker-btn">
+            <i class="far fa-hand-scissors fa-flip-horizontal"></i>
+          </button>
+        </div>
+        <div class="start-game-btn-container">
+          <button id="go-btn" class="start-game-btn">Go!</button>
+          <button id="end-game" class="end-btn">Quit</button>
+        </div>
+        <div class="check-container">
+          <span id="invalid-check"
+            >Select how many rounds you want to play before you start!</span
+          >
+          <span id="picker-check"
+            >You must select your move before starting!</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="final-display" class="result-display">
+      <div class="button-x-container">
+        <button id="button-close1" class="button-x">X</button>
+      </div>
+      <div class="result">
+        <div class="winner-display">
+          <span id="display-win">You Win!</span>
+          <span id="display-lose">You Lose!</span>
+        </div>
+        <div class="result-final-score-container">
+          <span>Final Score</span>
+          <div class="result-final-score">
+            <div class="user-final-score">
+              <span>You: </span><span id="final-user-score"></span>
+            </div>
+            <div class="opponent-final-score">
+              <span>Opponent: </span><span id="final-opponent-score"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="final-btn-container">
+        <div class="play-again-container">
+          <button id="play-again-btn" class="final-btn">Play Again?</button>
+        </div>
+        <div class="end-game-container">
+          <button id="end-game-confirm" class="final-btn">End Game</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="quit-display" class="result-display">
+      <div class="button-x-container">
+        <button id="button-close" class="button-x">X</button>
+      </div>
+      <div class="result">
+        <div class="winner-display">
+          <span>Are you sure you want to quit the game?</span>
+        </div>
+      </div>
+      <div class="final-btn-container">
+        <div class="play-again-container">
+          <button id="quit-game-btn" class="final-btn">Yes</button>
+        </div>
+        <div class="end-game-container">
+          <button id="quit-cancelled" class="final-btn">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
