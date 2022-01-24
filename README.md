@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://drewrecker4.github.io/NFTCard/)
+- Solution URL: (https://drewrecker4.github.io/Rock_Paper_Scissors/)
 
 ## My process
 
