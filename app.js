@@ -101,6 +101,7 @@ const setSeriesButton = () => {
 const disableLatchButton = () => {
   document.getElementById("toggle-btn").classList.add("confirm-latch");
   document.getElementById("toggle-btn").classList.remove("confirm-btn");
+  document.getElementById("toggle-btn").style.visibility = "hidden";
   confirmLatchMode = 1;
   confirmButtonToggle.disabled = true;
 };
@@ -108,6 +109,7 @@ const disableLatchButton = () => {
 const enableLatchButton = () => {
   document.getElementById("toggle-btn").classList.add("confirm-btn");
   document.getElementById("toggle-btn").classList.remove("confirm-latch");
+  document.getElementById("toggle-btn").style.visibility = "visible";
   confirmLatchMode = 0;
   confirmButtonToggle.disabled = false;
 };

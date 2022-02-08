@@ -83,9 +83,22 @@ header {
   background: var(--main-white);
   color: var(--main-black);
   padding: 2rem 2rem 2rem 0;
-  margin: 2rem 0;
+  margin: 0;
   max-width: 100%;
   flex-direction: column;
+}
+
+@media (min-width: 550px) {
+  header {
+    display: flex;
+    gap: 5rem;
+    background: var(--main-white);
+    color: var(--main-black);
+    padding: 2rem 2rem 2rem 0;
+    margin: 2rem 0;
+    max-width: 100%;
+    flex-direction: column;
+  }
 }
 
 .dark-mode-btn-container {
@@ -110,16 +123,20 @@ ul {
   margin: 0 0 3rem 1rem;
 }
 
+h2 {
+  text-decoration: underline;
+  font-size: 3rem;
+}
+
 @media (min-width: 536px) {
   ul {
     list-style: none;
     margin: 0 0 3rem 1rem;
   }
-}
-
-h2 {
-  text-decoration: underline;
-  font-size: 4rem;
+  h2 {
+    text-decoration: underline;
+    font-size: 4rem;
+  }
 }
 
 .intro {
@@ -176,22 +193,22 @@ h2 {
 
 #invalid-input {
   color: var(--main-red);
-  border: 1px solid var(--main-black);
-  padding: 0.5rem;
+  border: 2px solid var(--main-black);
+  padding: 0.5rem 1rem;
   font-weight: 700;
   background: #aaa;
   margin: 1rem 0;
   width: max-content;
+  border-radius: 5px;
+  text-shadow: 1px 0.5px white;
 }
 
 .confirm-btns-container {
   margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
+  display: grid;
 }
 
 .confirm-btn {
-  flex: 1;
   border-radius: 0.5rem;
   background: var(--main-gray);
   color: var(--main-black);
@@ -200,10 +217,11 @@ h2 {
   font-size: 1.8rem;
   font-weight: 700;
   padding: 0.5rem 1.5rem;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .series-btn {
-  flex: 1;
   border-radius: 0.5rem;
   background: var(--main-gray);
   color: var(--main-black);
@@ -212,14 +230,14 @@ h2 {
   font-size: 1.8rem;
   font-weight: 700;
   padding: 0.5rem 1.5rem;
-  margin-left: 1rem;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .playing-field {
   font-size: 10rem;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
   margin: 2rem 0;
 }
 
@@ -239,12 +257,14 @@ h2 {
   flex-basis: 100%;
   text-align: center;
   position: relative;
+  border: 2px solid var(--main-black);
 }
 
 .playing-field .user-player-text {
   font-size: 2.5rem;
   font-weight: 700;
   display: grid;
+  border-bottom: 2px solid var(--main-black);
 }
 
 @media (min-width: 536px) {
@@ -265,13 +285,13 @@ h2 {
 }
 
 .score-animation-visible {
-  background-color: var(--main-green);
-  transition: background-color 0.75s linear;
+  color: var(--main-green);
+  transition: color 0.75s linear;
 }
 
 .score-animation-invisible {
-  background-color: var(--main-white);
-  transition: background-color 0.75s linear;
+  color: var(--main-black);
+  transition: color 0.75s linear;
 }
 
 .playing-field .user-player-hands {
@@ -288,12 +308,14 @@ h2 {
   flex-basis: 100%;
   text-align: center;
   position: relative;
+  border: 2px solid var(--main-black);
 }
 
 .playing-field .computer-player-text {
   font-size: 2.5rem;
   font-weight: 700;
   display: grid;
+  border-bottom: 2px solid var(--main-black);
 }
 
 @media (min-width: 536px) {
@@ -409,21 +431,49 @@ h2 {
   margin: 2rem 0 0 0;
 }
 
+.picker-text {
+  margin: 1.5rem;
+}
+
+.total-picker-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
 .picker .total-picker-btns > * {
   width: 8rem;
   font-size: 3rem;
   margin: 0.5rem 0.5rem;
 }
 
+.start-game-btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media (min-width: 457px) {
+  .total-picker-btns {
+    display: flex;
+    justify-content: left;
+  }
   .picker .total-picker-btns > * {
     width: 10rem;
     font-size: 4rem;
     margin: 1rem 1.5rem;
   }
+  .start-game-btn-container {
+    display: flex;
+    justify-content: left;
+  }
 }
 
 .start-game-btn {
+  width: 10rem;
+  font-size: 2rem;
+  margin: 1.5rem;
+}
+
+.end-btn {
   width: 10rem;
   font-size: 2rem;
   margin: 1.5rem;
@@ -435,30 +485,29 @@ h2 {
 
 #invalid-check {
   color: var(--main-red);
-  border: 1px solid var(--main-black);
+  border: 2px solid var(--main-black);
+  padding: 0.5rem 1rem;
   background: #aaa;
   font-weight: 700;
-  padding: 0.5rem;
   margin: 1rem 0;
   grid-row: 1;
   grid-column: 1;
   width: fit-content;
+  border-radius: 5px;
+  text-shadow: 1px 0.5px white;
 }
 #picker-check {
   color: var(--main-red);
-  border: 1px solid var(--main-black);
+  border: 2px solid var(--main-black);
+  padding: 0.5rem 1rem;
   background: #aaa;
   font-weight: 700;
-  padding: 0.5rem;
   margin: 1rem 0;
   grid-row: 1;
   grid-column: 1;
   width: fit-content;
-}
-
-.end-btn {
-  width: 10rem;
-  font-size: 2rem;
+  border-radius: 5px;
+  text-shadow: 1px 0.5px white;
 }
 
 .result-display {
@@ -473,7 +522,7 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 80vh;
+  height: 50vh;
 }
 
 .result-display .result {
@@ -484,9 +533,38 @@ h2 {
   text-align: center;
 }
 
+.final-btn {
+  border-radius: 0.5rem;
+  background: var(--main-gray);
+  color: var(--main-black);
+  border: 0.3rem solid var(--main-black);
+  max-width: 12rem;
+}
+
 @media (min-width: 536px) {
+  .result-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--main-blue);
+    border: 2px solid var(--main-black);
+    color: var(--main-white);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80vh;
+  }
   .result-display .result {
     font-size: 4rem;
+  }
+  .final-btn {
+    border-radius: 0.5rem;
+    background: var(--main-gray);
+    color: var(--main-black);
+    border: 0.3rem solid var(--main-black);
+    max-width: 18rem;
   }
 }
 
@@ -529,18 +607,13 @@ h2 {
 
 .popup-display {
   position: absolute;
-  top: 43%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
   width: 60%;
   height: 10vh;
-}
-
-@media (min-width: 536px) {
-  .popup-display {
-    top: 40%;
-  }
+  background: var(--main-white);
 }
 
 .popup-display > * {
