@@ -257,6 +257,7 @@ const startButtonGo = () => {
   rockToggle.disabled = true;
   paperToggle.disabled = true;
   scissorsToggle.disabled = true;
+  goToggle.disabled = true;
 };
 
 const startButtonGoUnlatched = () => {
@@ -266,6 +267,7 @@ const startButtonGoUnlatched = () => {
   rockToggle.disabled = false;
   paperToggle.disabled = false;
   scissorsToggle.disabled = false;
+  goToggle.disabled = false;
 };
 
 const goVisibilityBegin = () => {
