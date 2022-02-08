@@ -1,6 +1,6 @@
 # Rock Paper Scissors Interactive Game
 
-This is a simple rock paper scissors game with additional functionality such as playing a series or quitting mid-game. There are CSS animations as well to enhance the user experience.
+This is a simple rock paper scissors game with additional functionality such as playing a best-of series or quitting mid-game. There are CSS animations as well to enhance the user experience.
 
 ## Table of contents
 
@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://drewrecker4.github.io/Rock_Paper_Scissors/)
+- [Live Site](https://drewrecker4.github.io/Rock_Paper_Scissors/)
 
 ## My process
 
@@ -39,7 +39,7 @@ Users should be able to:
 - CSS
 - JavaScript
 - Mobile-first workflow
-- [Font Awesome](https://fontawesome.com/) - eye icon
+- [Font Awesome](https://fontawesome.com/)
 
 ### Continued development
 
@@ -47,5 +47,5 @@ I am satisfied with the final result for now, although I would like to add addit
 
 ## Author
 
-- Frontend Mentor - [@Drewrecker4](https://www.frontendmentor.io/profile/Drewrecker4)
 - GitHub - [@Drewrecker4](https://github.com/Drewrecker4)
+- Frontend Mentor - [@Drewrecker4](https://www.frontendmentor.io/profile/Drewrecker4)
