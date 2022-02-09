@@ -614,7 +614,7 @@ const startDrawTransition = () => {
       document
         .getElementById("draw-r")
         .classList.remove("popup-display-animation-invisible");
-    }, 200);
+    }, 250);
     setTimeout(() => {
       document
         .getElementById("draw-a")
@@ -622,7 +622,7 @@ const startDrawTransition = () => {
       document
         .getElementById("draw-a")
         .classList.remove("popup-display-animation-invisible");
-    }, 400);
+    }, 500);
     setTimeout(() => {
       document
         .getElementById("draw-w")
@@ -630,7 +630,7 @@ const startDrawTransition = () => {
       document
         .getElementById("draw-w")
         .classList.remove("popup-display-animation-invisible");
-    }, 600);
+    }, 750);
   } else {
     return;
   }
@@ -778,7 +778,7 @@ const endDrawTransition = () => {
         document
           .getElementById("draw-r")
           .classList.remove("popup-display-animation-visible");
-      }, 200);
+      }, 250);
       setTimeout(() => {
         document
           .getElementById("draw-a")
@@ -786,7 +786,7 @@ const endDrawTransition = () => {
         document
           .getElementById("draw-a")
           .classList.remove("popup-display-animation-visible");
-      }, 400);
+      }, 500);
       setTimeout(() => {
         document
           .getElementById("draw-w")
@@ -794,11 +794,11 @@ const endDrawTransition = () => {
         document
           .getElementById("draw-w")
           .classList.remove("popup-display-animation-visible");
-      }, 600);
+      }, 750);
     } else {
       return;
     }
-  }, 600);
+  }, 750);
 };
 
 document.getElementById("user-score-display").style.visibility = "visible";
