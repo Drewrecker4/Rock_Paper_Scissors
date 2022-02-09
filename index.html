@@ -33,32 +33,30 @@
       </div>
     </header>
 
-    <section class="intro">
-      <form class="number-of-games">
-        <div class="rounds">
-          <span>How many rounds do you want to play?</span>
+    <section id="intro-section" class="intro">
+      <div class="rounds">
+        <span for="input-rounds">How many rounds do you want to play?</span>
+      </div>
+      <div class="best-of-container">
+        <div id="best-of-visibility" class="best-of">
+          <span>Best of </span>
+          <input
+            id="input-js"
+            class="game-input"
+            type="number"
+            min="1"
+            max="999"
+            placeholder="0"
+            step="2"
+            type="submit"
+          />
         </div>
-        <div class="best-of-container">
-          <div id="best-of-visibility" class="best-of">
-            <span>Best of </span>
-            <label
-              ><input
-                id="input-js"
-                class="game-input"
-                type="number"
-                min="1"
-                max="999"
-                placeholder="0"
-                step="2"
-            /></label>
-          </div>
-          <div id="best-of-hidden">
-            <span>Best of&ensp;<span id="best-of-final"></span>!</span>
-          </div>
+        <div id="best-of-hidden">
+          <span>Best of&ensp;<span id="best-of-final"></span>!</span>
         </div>
-      </form>
+      </div>
       <div class="confirm-btns-container">
-        <button id="toggle-btn" class="confirm-btn" onclick="iii();">
+        <button id="toggle-btn" class="confirm-btn" onclick="inputValidate();">
           Confirm
         </button>
         <button id="series" class="series-btn">Change Series</button>
@@ -71,37 +69,67 @@
     <section class="game-field">
       <div id="win-lose-draw-display" class="popup-display">
         <div id="winner-popup">
-          <span id="winner-w" class="winner-green score-animation-invisible"
+          <span
+            id="winner-w"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >W</span
           >
-          <span id="winner-i" class="winner-green score-animation-invisible"
+          <span
+            id="winner-i"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >I</span
           >
-          <span id="winner-n" class="winner-green score-animation-invisible"
+          <span
+            id="winner-n"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >N</span
           >
-          <span id="winner-n1" class="winner-green score-animation-invisible"
+          <span
+            id="winner-n1"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >N</span
           >
-          <span id="winner-e" class="winner-green score-animation-invisible"
+          <span
+            id="winner-e"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >E</span
           >
-          <span id="winner-r" class="winner-green score-animation-invisible"
+          <span
+            id="winner-r"
+            class="winner-green score-animation-invisible popup-display-animation-invisible"
             >R</span
           >
         </div>
         <div id="loser-popup">
-          <span id="loser-l" class="loser-red">L</span>
-          <span id="loser-o" class="loser-red">O</span>
-          <span id="loser-s" class="loser-red">S</span>
-          <span id="loser-e" class="loser-red">E</span>
-          <span id="loser-r" class="loser-red">R</span>
+          <span id="loser-l" class="loser-red popup-display-animation-invisible"
+            >L</span
+          >
+          <span id="loser-o" class="loser-red popup-display-animation-invisible"
+            >O</span
+          >
+          <span id="loser-s" class="loser-red popup-display-animation-invisible"
+            >S</span
+          >
+          <span id="loser-e" class="loser-red popup-display-animation-invisible"
+            >E</span
+          >
+          <span id="loser-r" class="loser-red popup-display-animation-invisible"
+            >R</span
+          >
         </div>
         <div id="draw-popup">
-          <span id="draw-d" class="draw-blue">D</span>
-          <span id="draw-r" class="draw-blue">R</span>
-          <span id="draw-a" class="draw-blue">A</span>
-          <span id="draw-w" class="draw-blue">W</span>
+          <span id="draw-d" class="draw-blue popup-display-animation-invisible"
+            >D</span
+          >
+          <span id="draw-r" class="draw-blue popup-display-animation-invisible"
+            >R</span
+          >
+          <span id="draw-a" class="draw-blue popup-display-animation-invisible"
+            >A</span
+          >
+          <span id="draw-w" class="draw-blue popup-display-animation-invisible"
+            >W</span
+          >
         </div>
       </div>
       <div class="playing-field">
@@ -208,7 +236,7 @@
           <span id="display-lose">You Lose!</span>
         </div>
         <div class="result-final-score-container">
-          <span>Final Score</span>
+          <span>Final Score:</span>
           <div class="result-final-score">
             <div class="user-final-score">
               <span>You: </span><span id="final-user-score"></span>

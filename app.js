@@ -48,7 +48,7 @@ document.getElementById("c-scissors").style.visibility = "hidden";
 let inputValue = document.getElementById("input-js");
 let inputIsValid;
 document.getElementById("invalid-input").style.visibility = "hidden";
-const iii = () => {
+const inputValidate = () => {
   if (inputValue.value < 1) {
     document.getElementById("invalid-input").style.visibility = "visible";
     inputIsValid = 0;
@@ -430,10 +430,12 @@ let opponentScore = 0;
 let userScoreForResult;
 let opponentScoreForResult;
 
-//this function can be cleaned up in the future - it can be done with only one "else if"
-
 const score = () => {
-  if (handState == 1 && randomNum == 2) {
+  if (
+    (handState == 1 && randomNum == 2) ||
+    (handState == 2 && randomNum == 3) ||
+    (handState == 3 && randomNum == 1)
+  ) {
     opponentScore += 1;
     opponentScoreForResult++;
     setTimeout(() => {
@@ -442,43 +444,11 @@ const score = () => {
       document.getElementById("final-user-score").innerHTML = userScore;
       document.getElementById("final-opponent-score").innerHTML = opponentScore;
     }, 3225);
-  } else if (handState == 1 && randomNum == 3) {
-    userScore += 1;
-    userScoreForResult++;
-    setTimeout(() => {
-      document.getElementById("live-user-score").innerHTML = userScore;
-      document.getElementById("live-opponent-score").innerHTML = opponentScore;
-      document.getElementById("final-user-score").innerHTML = userScore;
-      document.getElementById("final-opponent-score").innerHTML = opponentScore;
-    }, 3225);
-  } else if (handState == 2 && randomNum == 1) {
-    userScore += 1;
-    userScoreForResult++;
-    setTimeout(() => {
-      document.getElementById("live-user-score").innerHTML = userScore;
-      document.getElementById("live-opponent-score").innerHTML = opponentScore;
-      document.getElementById("final-user-score").innerHTML = userScore;
-      document.getElementById("final-opponent-score").innerHTML = opponentScore;
-    }, 3225);
-  } else if (handState == 2 && randomNum == 3) {
-    opponentScore += 1;
-    opponentScoreForResult++;
-    setTimeout(() => {
-      document.getElementById("live-user-score").innerHTML = userScore;
-      document.getElementById("live-opponent-score").innerHTML = opponentScore;
-      document.getElementById("final-user-score").innerHTML = userScore;
-      document.getElementById("final-opponent-score").innerHTML = opponentScore;
-    }, 3225);
-  } else if (handState == 3 && randomNum == 1) {
-    opponentScore += 1;
-    opponentScoreForResult++;
-    setTimeout(() => {
-      document.getElementById("live-user-score").innerHTML = userScore;
-      document.getElementById("live-opponent-score").innerHTML = opponentScore;
-      document.getElementById("final-user-score").innerHTML = userScore;
-      document.getElementById("final-opponent-score").innerHTML = opponentScore;
-    }, 3225);
-  } else if (handState == 3 && randomNum == 2) {
+  } else if (
+    (handState == 1 && randomNum == 3) ||
+    (handState == 2 && randomNum == 1) ||
+    (handState == 3 && randomNum == 2)
+  ) {
     userScore += 1;
     userScoreForResult++;
     setTimeout(() => {
@@ -504,7 +474,7 @@ const score = () => {
 /* ----------------------------------Win-Lose-Draw Displays-----------------------------------*/
 /* -------------------------------------------------------------------------------------------*/
 
-document.getElementById("win-lose-draw-display").style.visibility = "hidden";
+//document.getElementById("win-lose-draw-display").style.visibility = "hidden";
 
 const startWinnerTransition = () => {
   if (
